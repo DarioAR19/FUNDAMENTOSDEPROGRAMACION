@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a, b, c;
+    cout << "Ingrese el primer numero: ";
+    cin >> a;
+    cout << "Ingrese el segundo numero: ";
+    cin >> b;
+    c = b + a; 
+    cout<< "La suma es:" << c;
+    cout << "La resta es:" << c;
+    cout << "La multiplicacion es:" << c;
+    cout << "La division es:" << c;
+}
