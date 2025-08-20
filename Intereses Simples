@@ -1,0 +1,7 @@
+Algoritmo InteresSimple
+	Escribir "Ingrese el valor del diametro" 
+	Leer Diametro
+	Radio <- Diametro
+	Escribir "Ingrese el valor de Area" 
+FinAlgoritmo
+
