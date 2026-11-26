@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    char opcion;
+    string destino;
+    float peso, tarifaBase, precioExtra, total;
+
+    do {
+        cout << "\n--- SISTEMA DE ENVIOS ---" << endl;
+        cout << "L. La Paz / El Alto" << endl;
+        cout << "C. Cochabamba" << endl;
+        cout << "S. Santa Cruz" << endl;
+        cout << "X. Salir del sistema" << endl;
+
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 'L':
+                destino = "La Paz / El Alto";
+                tarifaBase = 7;
+                precioExtra = 3;
+                break;
+
+            case 'C':
+                destino = "Cochabamba";
+                tarifaBase = 5;
+                precioExtra = 2;
+                break;
+
+            case 'S':
+                destino = "Santa Cruz";
+                tarifaBase = 8;
+                precioExtra = 4;
+                break;
+
+            case 'X':
+                cout << "Saliendo del sistema..." << endl;
+                break;
+
+            default:
+                cout << "Opcion incorrecta" << endl;
+                break;
+        }
+
+        if (opcion == 'L' || opcion == 'C' || opcion == 'S') {
+
+            cout << "Ingrese el peso del paquete (Kg): ";
+            cin >> peso;
+
+            if (peso > 2) {
+                total = tarifaBase + (peso - 2) * precioExtra;
+            }
+            else {
+                total = tarifaBase;
+            }
+
+            cout << "\n--- RESUMEN DEL ENVIO ---" << endl;
+            cout << "Destino: " << destino << endl;
+            cout << "Peso: " << peso << " Kg" << endl;
+            cout << "Tarifa base: Bs " << tarifaBase << endl;
+            cout << "Costo total: Bs " << total << endl;
+        }
+
+    } while (opcion != 'X');
+
+    return 0;
+}
