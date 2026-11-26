@@ -1,0 +1,182 @@
+#include <iostream>
+#include <iomanip>
+#include <limits>
+using namespace std;
+
+// Prototipos de funciones
+int leerEntero(int minimo, int maximo);
+int leerCantidad();
+void registrar(int notas[], int N);
+void mostrar(int notas[], int N);
+float promedio(int notas[], int N);
+void mayorMenor(int notas[], int N, int &mayor, int &menor);
+int contarAprobados(int notas[], int N);
+int buscar(int notas[], int N, int nota);
+void actualizar(int notas[], int N);
+void mostrarResumen(int notas[], int N);
+void buscarNota(int notas[], int N);
+
+// Programa principal
+int main() {
+    int notas[30];
+    int N;
+
+    N = leerCantidad();
+
+    registrar(notas, N);
+    mostrar(notas, N);
+    mostrarResumen(notas, N);
+
+    buscarNota(notas, N);
+
+    actualizar(notas, N);
+
+    cout << "\n--- NOTAS ACTUALIZADAS ---" << endl;
+
+    mostrar(notas, N);
+
+    cout << "Nuevo promedio: " << fixed
+         << setprecision(2) << promedio(notas, N) << endl;
+
+    return 0;
+}
+
+// Leer y validar un entero
+int leerEntero(int minimo, int maximo) {
+    int valor;
+
+    while (true) {
+        if (cin >> valor) {
+            if (valor >= minimo && valor <= maximo) {
+                return valor;
+            }
+        }
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Valor incorrecto. Ingrese nuevamente: ";
+    }
+}
+
+// Leer cantidad de estudiantes
+int leerCantidad() {
+    cout << "Cantidad de estudiantes: ";
+    return leerEntero(1, 30);
+}
+
+// Registrar calificaciones
+void registrar(int notas[], int N) {
+    for (int i = 0; i < N; i++) {
+        cout << "Nota estudiante " << i + 1 << ": ";
+        notas[i] = leerEntero(0, 100);
+    }
+}
+
+// Mostrar calificaciones
+void mostrar(int notas[], int N) {
+    for (int i = 0; i < N; i++) {
+        cout << "Estudiante " << i + 1 << ": "
+             << notas[i] << endl;
+    }
+}
+
+// Calcular promedio
+float promedio(int notas[], int N) {
+    float suma = 0;
+
+    for (int i = 0; i < N; i++) {
+        suma = suma + notas[i];
+    }
+
+    return suma / N;
+}
+
+// Determinar nota mayor y menor
+void mayorMenor(int notas[], int N, int &mayor, int &menor) {
+    mayor = notas[0];
+    menor = notas[0];
+
+    for (int i = 0; i < N; i++) {
+
+        if (notas[i] > mayor) {
+            mayor = notas[i];
+        }
+
+        if (notas[i] < menor) {
+            menor = notas[i];
+        }
+    }
+}
+
+// Contar estudiantes aprobados
+int contarAprobados(int notas[], int N) {
+    int aprobados = 0;
+
+    for (int i = 0; i < N; i++) {
+        if (notas[i] >= 51) {
+            aprobados++;
+        }
+    }
+
+    return aprobados;
+}
+
+// Buscar una calificacion
+int buscar(int notas[], int N, int nota) {
+    for (int i = 0; i < N; i++) {
+        if (notas[i] == nota) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+// Actualizar una calificacion
+void actualizar(int notas[], int N) {
+    int estudiante, nuevaNota;
+
+    cout << "\nModificar estudiante: ";
+    estudiante = leerEntero(1, N);
+
+    cout << "Nueva nota: ";
+    nuevaNota = leerEntero(0, 100);
+
+    notas[estudiante - 1] = nuevaNota;
+}
+
+// Mostrar resumen de resultados
+void mostrarResumen(int notas[], int N) {
+    int mayor, menor, aprobados, reprobados;
+
+    mayorMenor(notas, N, mayor, menor);
+
+    aprobados = contarAprobados(notas, N);
+    reprobados = N - aprobados;
+
+    cout << "\n--- RESULTADOS ---" << endl;
+
+    cout << fixed << setprecision(2);
+    cout << "Promedio: " << promedio(notas, N) << endl;
+    cout << "Mayor: " << mayor << endl;
+    cout << "Menor: " << menor << endl;
+    cout << "Aprobados: " << aprobados << endl;
+    cout << "Reprobados: " << reprobados << endl;
+}
+
+// Solicitar y buscar una nota
+void buscarNota(int notas[], int N) {
+    int nota, posicion;
+
+    cout << "\nBuscar nota: ";
+    nota = leerEntero(0, 100);
+
+    posicion = buscar(notas, N, nota);
+
+    if (posicion != -1) {
+        cout << "Estudiante " << posicion + 1 << endl;
+    }
+    else {
+        cout << "La nota no existe" << endl;
+    }
+}
