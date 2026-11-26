@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string origen, universidad, transporte;
+
+    cout << "Ingrese su ubicacion de origen: ";
+    getline(cin, origen);
+
+    cout << "Ingrese el nombre de la universidad: ";
+    getline(cin, universidad);
+
+    cout << "Ingrese su medio de transporte: ";
+    getline(cin, transporte);
+
+    cout << "1. Salir de " << origen << endl;
+    cout << "2. Trasladarse en " << transporte << endl;
+    cout << "3. Llegar a " << universidad << endl;
+    cout << "4. Ingresar a la universidad" << endl;
+    cout << "5. Buscar el aula" << endl;
+    cout << "6. Ingresar al aula" << endl;
+    cout << "Estudiante ubicado en su aula" << endl;
+
+    return 0;
+}
