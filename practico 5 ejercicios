@@ -1,0 +1,277 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, digito, suma = 0;
+
+    cout << "Ingrese un numero positivo: ";
+    cin >> N;
+
+    while (N > 0) {
+        digito = N % 10;
+        suma = suma + digito;
+        N = N / 10;
+    }
+
+    cout << "Suma de digitos: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, digito;
+    long long invertido = 0;
+
+    cout << "Ingrese un numero positivo: ";
+    cin >> N;
+
+    while (N > 0) {
+        digito = N % 10;
+        invertido = invertido * 10 + digito;
+        N = N / 10;
+    }
+
+    cout << "Numero invertido: " << invertido;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, digito, pares = 0;
+
+    cout << "Ingrese un numero positivo: ";
+    cin >> N;
+
+    do {
+        digito = N % 10;
+
+        if (digito % 2 == 0) {
+            pares++;
+        }
+
+        N = N / 10;
+
+    } while (N > 0);
+
+    cout << "Cantidad de digitos pares: " << pares;
+
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, original, digito;
+    long long invertido = 0;
+
+    cout << "Ingrese un numero positivo: ";
+    cin >> N;
+
+    original = N;
+
+    while (N > 0) {
+        digito = N % 10;
+        invertido = invertido * 10 + digito;
+        N = N / 10;
+    }
+
+    if (original == invertido) {
+        cout << "El numero es capicua";
+    }
+    else {
+        cout << "El numero no es capicua";
+    }
+
+    return 0;
+}
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string N;
+    int digito, complemento;
+
+    cout << "Ingrese un numero: ";
+    cin >> N;
+
+    if (N.find_first_not_of("0123456789") != string::npos) {
+        cout << "Numero incorrecto";
+        return 0;
+    }
+
+    cout << "Complemento a 9: ";
+
+    for (int i = 0; i < N.length(); i++) {
+        digito = N[i] - '0';
+        complemento = 9 - digito;
+
+        cout << complemento;
+    }
+
+    return 0;
+}
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string N;
+    bool valido = true;
+
+    cout << "Ingrese un numero en base 8: ";
+    cin >> N;
+
+    for (int i = 0; i < N.length(); i++) {
+        if (N[i] < '0' || N[i] > '7') {
+            valido = false;
+        }
+    }
+
+    if (valido) {
+        cout << "Numero valido en base 8";
+    }
+    else {
+        cout << "Numero invalido en base 8";
+    }
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, digito;
+    int total = 0, apps = 0, mayores = 0;
+    float promedio;
+
+    cout << "Ingrese el numero: ";
+    cin >> N;
+
+    do {
+        digito = N % 10;
+
+        total += digito;
+        apps++;
+
+        if (digito > 5) {
+            mayores++;
+        }
+
+        N = N / 10;
+
+    } while (N > 0);
+
+    promedio = (float)total / apps;
+
+    cout << "Total de horas: " << total << endl;
+    cout << "Cantidad de aplicaciones: " << apps << endl;
+    cout << "Apps que superan 5 horas: " << mayores << endl;
+    cout << "Promedio de horas: " << promedio << endl;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, digito, limite;
+    int pares = 0, suma = 0;
+
+    cout << "Ingrese el codigo numerico: ";
+    cin >> N;
+
+    cout << "Ingrese el valor minimo a superar: ";
+    cin >> limite;
+
+    do {
+        digito = N % 10;
+
+        suma += digito;
+
+        if (digito % 2 == 0) {
+            pares++;
+        }
+
+        N = N / 10;
+
+    } while (N > 0);
+
+    cout << "Digitos pares: " << pares << endl;
+    cout << "Suma de digitos: " << suma << endl;
+
+    if (pares >= 2 && suma > limite) {
+        cout << "Codigo seguro";
+    }
+    else {
+        cout << "Codigo inseguro";
+    }
+
+    return 0;
+}
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string PIN;
+    bool valido = true;
+
+    cout << "Ingrese su PIN: ";
+    cin >> PIN;
+
+    if (PIN.length() != 4 ||
+        PIN.find_first_not_of("0123456789") != string::npos) {
+        valido = false;
+    }
+
+    for (int i = 1; i < PIN.length(); i++) {
+        if (PIN[i] == PIN[i - 1]) {
+            valido = false;
+        }
+    }
+
+    if (valido) {
+        cout << "PIN valido";
+    }
+    else {
+        cout << "PIN invalido";
+    }
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, digito;
+    int total = 0, mayores = 0, movimientos = 0;
+
+    cout << "Ingrese el numero de transacciones: ";
+    cin >> N;
+
+    do {
+        digito = N % 10;
+
+        total += digito;
+        movimientos++;
+
+        if (digito > 5) {
+            mayores++;
+        }
+
+        N = N / 10;
+
+    } while (N > 0);
+
+    cout << "Cantidad de transacciones: " << movimientos << endl;
+    cout << "Transacciones mayores a 5: " << mayores << endl;
+    cout << "Total acumulado: Bs " << total << endl;
+
+    return 0;
+}
