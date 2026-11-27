@@ -1,0 +1,1029 @@
+#include <iostream>
+#include <limits>
+using namespace std;
+
+void leer(double v[], int &n);
+double maximo(double v[], int n);
+void mostrar(double resultado);
+
+int main() {
+    double v[100];
+    int n;
+
+    leer(v, n);
+    mostrar(maximo(v, n));
+
+    return 0;
+}
+
+void leer(double v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> v[i];
+    }
+}
+
+double maximo(double v[], int n) {
+    double mayor = v[0];
+
+    for (int i = 1; i < n; i++) {
+        if (v[i] > mayor)
+            mayor = v[i];
+    }
+
+    return mayor;
+}
+
+void mostrar(double resultado) {
+    cout << "Valor maximo: " << resultado << endl;
+}
+
+
+#include <iostream>
+using namespace std;
+
+void leer(double v[], int &n);
+double minimo(double v[], int n);
+void mostrar(double resultado);
+
+int main() {
+    double v[100];
+    int n;
+
+    leer(v, n);
+    mostrar(minimo(v, n));
+
+    return 0;
+}
+
+void leer(double v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> v[i];
+    }
+}
+
+double minimo(double v[], int n) {
+    double menor = v[0];
+
+    for (int i = 1; i < n; i++) {
+        if (v[i] < menor)
+            menor = v[i];
+    }
+
+    return menor;
+}
+
+void mostrar(double resultado) {
+    cout << "Valor minimo: " << resultado << endl;
+}
+
+
+#include <iostream>
+using namespace std;
+
+void leer(double v[], int &n);
+double promedio(double v[], int n);
+void mostrar(double resultado);
+
+int main() {
+    double v[100];
+    int n;
+
+    leer(v, n);
+    mostrar(promedio(v, n));
+
+    return 0;
+}
+
+void leer(double v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> v[i];
+    }
+}
+
+double promedio(double v[], int n) {
+    double suma = 0;
+
+    for (int i = 0; i < n; i++) {
+        suma += v[i];
+    }
+
+    return suma / n;
+}
+
+void mostrar(double resultado) {
+    cout << "Promedio: " << resultado << endl;
+}
+
+
+#include <iostream>
+using namespace std;
+
+void leer(int a[], int &n);
+void invertir(int a[], int b[], int n);
+void mostrar(int v[], int n);
+
+int main() {
+    int a[100], b[100], n;
+
+    leer(a, n);
+    invertir(a, b, n);
+
+    cout << "Vector original: ";
+    mostrar(a, n);
+
+    cout << "Vector invertido: ";
+    mostrar(b, n);
+
+    return 0;
+}
+
+void leer(int a[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> a[i];
+    }
+}
+
+void invertir(int a[], int b[], int n) {
+    for (int i = 0; i < n; i++) {
+        b[i] = a[n - 1 - i];
+    }
+}
+
+void mostrar(int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+}
+
+
+
+#include <iostream>
+using namespace std;
+
+void leer(int v[], int &n);
+bool capicua(int v[], int n);
+void mostrar(bool resultado);
+
+int main() {
+    int v[100], n;
+
+    leer(v, n);
+    mostrar(capicua(v, n));
+
+    return 0;
+}
+
+void leer(int v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> v[i];
+    }
+}
+
+bool capicua(int v[], int n) {
+    for (int i = 0; i < n / 2; i++) {
+        if (v[i] != v[n - 1 - i])
+            return false;
+    }
+
+    return true;
+}
+
+void mostrar(bool resultado) {
+    if (resultado)
+        cout << "El vector es capicua";
+    else
+        cout << "El vector no es capicua";
+}
+
+
+#include <iostream>
+using namespace std;
+
+void leer(double a[], int &n);
+void calcularPromedios(double a[], double b[], int n);
+void mostrar(double b[], int n);
+
+int main() {
+    double a[100], b[100];
+    int n;
+
+    leer(a, n);
+    calcularPromedios(a, b, n);
+    mostrar(b, n - 2);
+
+    return 0;
+}
+
+void leer(double a[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 3 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> a[i];
+    }
+}
+
+void calcularPromedios(double a[], double b[], int n) {
+    for (int i = 0; i < n - 2; i++) {
+        b[i] = (a[i] + a[i + 1] + a[i + 2]) / 3;
+    }
+}
+
+void mostrar(double b[], int n) {
+    cout << "Promedios: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << b[i] << " ";
+    }
+}
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int leer();
+string convertir(int n, string numeros[]);
+void mostrar(string resultado);
+
+int main() {
+    string numeros[21] = {
+        "CERO", "UNO", "DOS", "TRES", "CUATRO",
+        "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE",
+        "DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE",
+        "QUINCE", "DIECISEIS", "DIECISIETE",
+        "DIECIOCHO", "DIECINUEVE", "VEINTE"
+    };
+
+    int n = leer();
+
+    mostrar(convertir(n, numeros));
+
+    return 0;
+}
+
+int leer() {
+    int n;
+
+    do {
+        cout << "Ingrese un numero entre 0 y 20: ";
+        cin >> n;
+    } while (n < 0 || n > 20);
+
+    return n;
+}
+
+string convertir(int n, string numeros[]) {
+    return numeros[n];
+}
+
+void mostrar(string resultado) {
+    cout << "Numero en letras: " << resultado;
+}
+
+#include <iostream>
+using namespace std;
+
+void leer(double a[], int &n);
+double diferenciaAbsoluta(double x);
+void calcular(double a[], int n, double &mayor,
+              double &x, double &y);
+void mostrar(double mayor, double x, double y);
+
+int main() {
+    double a[100], mayor, x, y;
+    int n;
+
+    leer(a, n);
+    calcular(a, n, mayor, x, y);
+    mostrar(mayor, x, y);
+
+    return 0;
+}
+
+void leer(double a[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 2 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> a[i];
+    }
+}
+
+double diferenciaAbsoluta(double x) {
+    if (x < 0)
+        return -x;
+
+    return x;
+}
+
+void calcular(double a[], int n, double &mayor,
+              double &x, double &y) {
+
+    mayor = diferenciaAbsoluta(a[1] - a[0]);
+    x = a[0];
+    y = a[1];
+
+    for (int i = 0; i < n - 1; i++) {
+        double diferencia;
+
+        diferencia = diferenciaAbsoluta(a[i + 1] - a[i]);
+
+        if (diferencia > mayor) {
+            mayor = diferencia;
+            x = a[i];
+            y = a[i + 1];
+        }
+    }
+}
+
+void mostrar(double mayor, double x, double y) {
+    cout << "Mayor diferencia: " << mayor << endl;
+    cout << "Elementos: " << x << " y " << y;
+}
+
+#include <iostream>
+using namespace std;
+
+void leer(int v[], int &n);
+void concatenar(int a[], int b[], int c[], int n, int m);
+void mostrar(int v[], int n);
+
+int main() {
+    int a[100], b[100], c[200];
+    int n, m;
+
+    cout << "Vector A" << endl;
+    leer(a, n);
+
+    cout << "Vector B" << endl;
+    leer(b, m);
+
+    concatenar(a, b, c, n, m);
+
+    cout << "Vector A: ";
+    mostrar(a, n);
+
+    cout << "Vector B: ";
+    mostrar(b, m);
+
+    cout << "Vector C: ";
+    mostrar(c, n + m);
+
+    return 0;
+}
+
+void leer(int v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> v[i];
+    }
+}
+
+void concatenar(int a[], int b[], int c[], int n, int m) {
+    for (int i = 0; i < n; i++) {
+        c[i] = a[i];
+    }
+
+    for (int i = 0; i < m; i++) {
+        c[n + i] = b[i];
+    }
+}
+
+void mostrar(int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+}
+
+#include <iostream>
+using namespace std;
+
+void leer(int v[], int &n);
+void intercalar(int a[], int b[], int c[], int n, int m);
+void mostrar(int v[], int n);
+
+int main() {
+    int a[100], b[100], c[200];
+    int n, m;
+
+    cout << "Vector A" << endl;
+    leer(a, n);
+
+    cout << "Vector B" << endl;
+    leer(b, m);
+
+    intercalar(a, b, c, n, m);
+
+    cout << "Vector intercalado: ";
+    mostrar(c, n + m);
+
+    return 0;
+}
+
+void leer(int v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        do {
+            cout << "Ingrese valor en orden ascendente: ";
+            cin >> v[i];
+
+            if (i > 0 && v[i] < v[i - 1])
+                cout << "Valor incorrecto" << endl;
+
+        } while (i > 0 && v[i] < v[i - 1]);
+    }
+}
+
+void intercalar(int a[], int b[], int c[], int n, int m) {
+    int i = 0, j = 0, k = 0;
+
+    while (i < n && j < m) {
+        if (a[i] <= b[j]) {
+            c[k] = a[i];
+            i++;
+        }
+        else {
+            c[k] = b[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    while (i < n) {
+        c[k++] = a[i++];
+    }
+
+    while (j < m) {
+        c[k++] = b[j++];
+    }
+}
+
+void mostrar(int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+}
+
+
+#include <iostream>
+using namespace std;
+
+void leer(double v[], int &n);
+void contar(double v[], int n, int &positivos,
+            int &negativos, int &ceros);
+void mostrar(int positivos, int negativos, int ceros);
+
+int main() {
+    double v[100];
+    int n, positivos, negativos, ceros;
+
+    leer(v, n);
+    contar(v, n, positivos, negativos, ceros);
+    mostrar(positivos, negativos, ceros);
+
+    return 0;
+}
+
+void leer(double v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> v[i];
+    }
+}
+
+void contar(double v[], int n, int &positivos,
+            int &negativos, int &ceros) {
+
+    positivos = 0;
+    negativos = 0;
+    ceros = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (v[i] > 0)
+            positivos++;
+        else if (v[i] < 0)
+            negativos++;
+        else
+            ceros++;
+    }
+}
+
+void mostrar(int positivos, int negativos, int ceros) {
+    cout << "Positivos: " << positivos << endl;
+    cout << "Negativos: " << negativos << endl;
+    cout << "Ceros: " << ceros << endl;
+}
+#include <iostream>
+using namespace std;
+
+void leer(int a[], int &n);
+bool existe(int b[], int m, int numero);
+int eliminarDuplicados(int a[], int b[], int n);
+void mostrar(int v[], int n);
+
+int main() {
+    int a[100], b[100];
+    int n, m;
+
+    leer(a, n);
+    m = eliminarDuplicados(a, b, n);
+
+    mostrar(b, m);
+
+    return 0;
+}
+
+void leer(int a[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> a[i];
+    }
+}
+
+bool existe(int b[], int m, int numero) {
+    for (int i = 0; i < m; i++) {
+        if (b[i] == numero)
+            return true;
+    }
+
+    return false;
+}
+
+int eliminarDuplicados(int a[], int b[], int n) {
+    int m = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (!existe(b, m, a[i])) {
+            b[m] = a[i];
+            m++;
+        }
+    }
+
+    return m;
+}
+
+void mostrar(int v[], int n) {
+    cout << "Vector sin duplicados: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    cout << "\nCantidad de elementos: " << n;
+}
+
+#include <iostream>
+using namespace std;
+
+void leer(int a[], int &n);
+void invertir(int a[], int n);
+void mostrar(int a[], int n);
+
+int main() {
+    int a[100], n;
+
+    leer(a, n);
+
+    cout << "Vector original: ";
+    mostrar(a, n);
+
+    invertir(a, n);
+
+    cout << "Vector invertido: ";
+    mostrar(a, n);
+
+    return 0;
+}
+
+void leer(int a[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> a[i];
+    }
+}
+
+void invertir(int a[], int n) {
+    int aux;
+
+    for (int i = 0; i < n / 2; i++) {
+        aux = a[i];
+        a[i] = a[n - 1 - i];
+        a[n - 1 - i] = aux;
+    }
+}
+
+void mostrar(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << " ";
+    }
+
+    cout << endl;
+}
+
+#include <iostream>
+using namespace std;
+
+void leer(double v[], int &n);
+void ordenar(double v[], int n);
+void mostrar(double v[], int n);
+
+int main() {
+    double v[100];
+    int n;
+
+    leer(v, n);
+
+    cout << "Vector original: ";
+    mostrar(v, n);
+
+    ordenar(v, n);
+
+    cout << "Vector ordenado: ";
+    mostrar(v, n);
+
+    return 0;
+}
+
+void leer(double v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese valor: ";
+        cin >> v[i];
+    }
+}
+
+void ordenar(double v[], int n) {
+    double aux;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+
+            if (v[j] > v[j + 1]) {
+                aux = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = aux;
+            }
+        }
+    }
+}
+
+void mostrar(double v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+}
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leer(string nombres[], float notas[], int &n);
+void ordenar(string nombres[], float notas[], int n);
+void mostrar(string nombres[], float notas[], int n);
+
+int main() {
+    string nombres[100];
+    float notas[100];
+    int n;
+
+    leer(nombres, notas, n);
+    ordenar(nombres, notas, n);
+    mostrar(nombres, notas, 3);
+
+    return 0;
+}
+
+void leer(string nombres[], float notas[], int &n) {
+    do {
+        cout << "Cantidad de estudiantes: ";
+        cin >> n;
+    } while (n < 3 || n > 100);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Nombre del estudiante: ";
+        getline(cin >> ws, nombres[i]);
+
+        do {
+            cout << "Nota: ";
+            cin >> notas[i];
+        } while (notas[i] < 0 || notas[i] > 100);
+    }
+}
+
+void ordenar(string nombres[], float notas[], int n) {
+    float auxNota;
+    string auxNombre;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+
+            if (notas[j] < notas[j + 1]) {
+
+                auxNota = notas[j];
+                notas[j] = notas[j + 1];
+                notas[j + 1] = auxNota;
+
+                auxNombre = nombres[j];
+                nombres[j] = nombres[j + 1];
+                nombres[j + 1] = auxNombre;
+            }
+        }
+    }
+}
+
+void mostrar(string nombres[], float notas[], int n) {
+    cout << "\n--- TRES MEJORES NOTAS ---\n";
+
+    for (int i = 0; i < n; i++) {
+        cout << i + 1 << ". " << nombres[i]
+             << " - Nota: " << notas[i] << endl;
+    }
+}
+#include <iostream>
+#include <string>
+using namespace std;
+
+void menu();
+void leer(string nombres[], float notas[], int &n);
+void mostrar(string nombres[], float notas[], int n);
+void ordenar(string nombres[], float notas[], int n);
+void mostrarMejor(string nombres[], float notas[], int n);
+float promedio(float notas[], int n);
+void mostrarPromedio(float notas[], int n);
+
+int main() {
+    string nombres[100];
+    float notas[100];
+    int n = 0, opcion;
+
+    do {
+        menu();
+
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1:
+                leer(nombres, notas, n);
+                break;
+
+            case 2:
+                mostrar(nombres, notas, n);
+                break;
+
+            case 3:
+                ordenar(nombres, notas, n);
+                mostrar(nombres, notas, n);
+                break;
+
+            case 4:
+                mostrarMejor(nombres, notas, n);
+                break;
+
+            case 5:
+                mostrarPromedio(notas, n);
+                break;
+
+            case 6:
+                cout << "Fin del programa";
+                break;
+
+            default:
+                cout << "Opcion incorrecta" << endl;
+        }
+
+    } while (opcion != 6);
+
+    return 0;
+}
+
+void menu() {
+    cout << "\n--- GESTION DE ALUMNOS ---\n";
+    cout << "1. Registrar alumno\n";
+    cout << "2. Listar alumnos\n";
+    cout << "3. Ordenar alfabeticamente\n";
+    cout << "4. Mostrar mejor nota\n";
+    cout << "5. Calcular promedio\n";
+    cout << "6. Salir\n";
+}
+
+void leer(string nombres[], float notas[], int &n) {
+
+    if (n >= 100) {
+        cout << "Capacidad maxima alcanzada\n";
+        return;
+    }
+
+    cout << "Nombre del alumno: ";
+    getline(cin >> ws, nombres[n]);
+
+    do {
+        cout << "Nota del alumno: ";
+        cin >> notas[n];
+
+    } while (notas[n] < 0 || notas[n] > 100);
+
+    n++;
+
+    cout << "Alumno registrado correctamente\n";
+}
+
+void mostrar(string nombres[], float notas[], int n) {
+
+    if (n == 0) {
+        cout << "No hay alumnos registrados\n";
+        return;
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << i + 1 << ". " << nombres[i]
+             << " - Nota: " << notas[i] << endl;
+    }
+}
+
+void ordenar(string nombres[], float notas[], int n) {
+    string auxNombre;
+    float auxNota;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+
+            if (nombres[j] > nombres[j + 1]) {
+
+                auxNombre = nombres[j];
+                nombres[j] = nombres[j + 1];
+                nombres[j + 1] = auxNombre;
+
+                auxNota = notas[j];
+                notas[j] = notas[j + 1];
+                notas[j + 1] = auxNota;
+            }
+        }
+    }
+}
+
+void mostrarMejor(string nombres[], float notas[], int n) {
+
+    if (n == 0) {
+        cout << "No hay alumnos registrados\n";
+        return;
+    }
+
+    float mayor = notas[0];
+
+    for (int i = 1; i < n; i++) {
+        if (notas[i] > mayor)
+            mayor = notas[i];
+    }
+
+    cout << "Mejor nota: " << mayor << endl;
+
+    for (int i = 0; i < n; i++) {
+        if (notas[i] == mayor)
+            cout << "Alumno: " << nombres[i] << endl;
+    }
+}
+
+float promedio(float notas[], int n) {
+    float suma = 0;
+
+    for (int i = 0; i < n; i++) {
+        suma += notas[i];
+    }
+
+    return suma / n;
+}
+
+void mostrarPromedio(float notas[], int n) {
+
+    if (n == 0) {
+        cout << "No hay alumnos registrados\n";
+        return;
+    }
+
+    cout << "Promedio general: "
+         << promedio(notas, n) << endl;
+}
+
+#include <iostream>
+using namespace std;
+
+int leer();
+void generar(unsigned long long v[], int n);
+void mostrar(unsigned long long v[], int n);
+
+int main() {
+    unsigned long long v[94];
+    int n;
+
+    n = leer();
+    generar(v, n);
+    mostrar(v, n);
+
+    return 0;
+}
+
+int leer() {
+    int n;
+
+    do {
+        cout << "Cantidad de terminos: ";
+        cin >> n;
+    } while (n < 1 || n > 94);
+
+    return n;
+}
+
+void generar(unsigned long long v[], int n) {
+
+    v[0] = 0;
+
+    if (n > 1)
+        v[1] = 1;
+
+    for (int i = 2; i < n; i++) {
+        v[i] = v[i - 1] + v[i - 2];
+    }
+}
+
+void mostrar(unsigned long long v[], int n) {
+    cout << "Serie de Fibonacci: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+}
+
+
