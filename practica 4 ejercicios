@@ -1,0 +1,388 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    long long suma = 0;
+
+    cout << "Ingrese N: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        suma += i;
+    }
+
+    cout << "Suma: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    long long suma = 0;
+
+    cout << "Ingrese N: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        if (i % 2 != 0) {
+            suma += i;
+        }
+    }
+
+    cout << "Suma de impares: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    long long suma = 0;
+
+    cout << "Ingrese N: ";
+    cin >> N;
+
+    for (long long i = 1; i <= N; i++) {
+        suma += i * i;
+    }
+
+    cout << "Suma de cuadrados: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    long long suma = 0;
+
+    cout << "Ingrese N: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        if (i % 2 == 0) {
+            suma -= i;
+        }
+        else {
+            suma += i;
+        }
+    }
+
+    cout << "Resultado: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    unsigned long long producto = 1;
+
+    do {
+        cout << "Ingrese N entre 1 y 20: ";
+        cin >> N;
+    } while (N < 1 || N > 20);
+
+    for (int i = 1; i <= N; i++) {
+        producto *= i;
+    }
+
+    cout << "Producto: " << producto;
+
+    return 0;
+}
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double X, suma = 0;
+    int N;
+
+    cout << "Ingrese X: ";
+    cin >> X;
+
+    cout << "Ingrese N: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        suma += pow(X, i);
+    }
+
+    cout << "Suma: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    unsigned long long factorial = 1;
+
+    do {
+        cout << "Ingrese N entre 0 y 20: ";
+        cin >> N;
+    } while (N < 0 || N > 20);
+
+    for (int i = 1; i <= N; i++) {
+        factorial *= i;
+    }
+
+    cout << "Factorial: " << factorial;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    double X, suma = 0, termino = 1;
+    int N;
+
+    cout << "Ingrese X: ";
+    cin >> X;
+
+    cout << "Ingrese N: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        termino = termino * X / i;
+        suma += termino;
+    }
+
+    cout << "Suma de la serie: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    double X, suma = 0, termino = 1;
+    int N;
+
+    cout << "Ingrese X: ";
+    cin >> X;
+
+    cout << "Ingrese N: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        termino = termino * X / i;
+
+        if (i % 2 == 0) {
+            suma -= termino;
+        }
+        else {
+            suma += termino;
+        }
+    }
+
+    cout << "Suma de la serie: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    double X, suma = 0, termino;
+    int N, signo = 1;
+
+    cout << "Ingrese X: ";
+    cin >> X;
+
+    do {
+        cout << "Ingrese N positivo e impar: ";
+        cin >> N;
+    } while (N <= 0 || N % 2 == 0);
+
+    termino = X;
+
+    for (int i = 1; i <= N; i += 2) {
+        suma += signo * termino;
+
+        termino = termino * X * X /
+                  ((i + 1.0) * (i + 2.0));
+
+        signo = -signo;
+    }
+
+    cout << "Suma de la serie: " << suma;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A, B, residuo;
+
+    cout << "Ingrese dos enteros positivos: ";
+    cin >> A >> B;
+
+    if (A <= 0 || B <= 0) {
+        cout << "Numeros incorrectos";
+        return 0;
+    }
+
+    while (B != 0) {
+        residuo = A % B;
+        A = B;
+        B = residuo;
+    }
+
+    cout << "MCD: " << A;
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A, B, x, y, residuo, MCD;
+    long long MCM;
+
+    cout << "Ingrese dos enteros positivos: ";
+    cin >> A >> B;
+
+    if (A <= 0 || B <= 0) {
+        cout << "Numeros incorrectos";
+        return 0;
+    }
+
+    x = A;
+    y = B;
+
+    while (y != 0) {
+        residuo = x % y;
+        x = y;
+        y = residuo;
+    }
+
+    MCD = x;
+    MCM = (long long)A * B / MCD;
+
+    cout << "MCM: " << MCM;
+
+    return 0;
+}
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    cout << "TABLA DE SUMAR" << endl;
+
+    for (int i = 1; i <= 10; i++) {
+
+        for (int j = 1; j <= 10; j++) {
+            cout << setw(4) << i + j;
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    unsigned long long a = 1, b = 1, c;
+
+    do {
+        cout << "Ingrese N entre 0 y 92: ";
+        cin >> N;
+    } while (N < 0 || N > 92);
+
+    if (N == 0 || N == 1) {
+        cout << "Fibonacci: 1";
+    }
+    else {
+        for (int i = 2; i <= N; i++) {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+
+        cout << "Fibonacci: " << b;
+    }
+
+    return 0;
+}
+#include <iostream>
+#include <iomanip>
+#include <thread>
+#include <chrono>
+using namespace std;
+
+int main() {
+    int h = 0, m = 0, s = 0;
+
+    while (true) {
+
+        cout << "\r" << setfill('0')
+             << setw(2) << h << ":"
+             << setw(2) << m << ":"
+             << setw(2) << s << flush;
+
+        this_thread::sleep_for(chrono::seconds(1));
+
+        s++;
+
+        if (s == 60) {
+            s = 0;
+            m++;
+        }
+
+        if (m == 60) {
+            m = 0;
+            h++;
+        }
+
+        if (h == 24) {
+            h = 0;
+        }
+    }
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    bool primo = true;
+
+    cout << "Ingrese un numero entero: ";
+    cin >> N;
+
+    if (N <= 1) {
+        primo = false;
+    }
+
+    for (int i = 2; i <= N / i && primo; i++) {
+        if (N % i == 0) {
+            primo = false;
+        }
+    }
+
+    if (primo) {
+        cout << "El numero es primo";
+    }
+    else {
+        cout << "El numero no es primo";
+    }
+
+    return 0;
+}
